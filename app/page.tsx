@@ -28,7 +28,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="container-x relative flex min-h-[100svh] flex-col justify-between pb-12 pt-36">
+        <div className="container-x relative flex min-h-[100svh] flex-col justify-between pb-10 pt-28 sm:pb-12 sm:pt-36">
           <Reveal>
             <div className="flex items-center gap-4 text-[11px] uppercase tracking-eyebrow text-emerald-300">
               <span className="block h-px w-10 bg-emerald-300/60" />
@@ -36,9 +36,9 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="grid items-end gap-16 lg:grid-cols-12">
+          <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-16">
             <Reveal delay={0.08} className="lg:col-span-8">
-              <h1 className="font-serif text-[3rem] font-light leading-[1.02] tracking-[-0.022em] md:text-[5rem] lg:text-[6.25rem]">
+              <h1 className="heading-hero">
                 Counsel built
                 <br />
                 <span className="italic text-emerald-300">
@@ -48,12 +48,12 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={0.18} className="lg:col-span-4">
-              <p className="max-w-md text-base leading-[1.7] text-canvas/75 md:text-[1.0625rem]">
+              <p className="max-w-md text-[15px] leading-[1.65] text-canvas/75 sm:text-base md:text-[1.0625rem]">
                 Sher, LLP is a boutique transactional firm representing
                 healthcare facility owners, lenders, and capital partners on the
                 deals that move the industry.
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-5">
+              <div className="mt-8 flex flex-wrap items-center gap-5 sm:mt-10">
                 <Link href="/contact" className="btn-primary">
                   Inquire
                 </Link>
@@ -68,13 +68,13 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={0.3}>
-            <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-canvas/10 pt-10 md:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-6 border-t border-canvas/10 pt-8 sm:mt-16 sm:gap-x-8 sm:gap-y-8 sm:pt-10 md:grid-cols-4">
               {heroStats.map((s) => (
                 <div key={s.label}>
-                  <div className="font-serif text-3xl font-light text-emerald-300 md:text-[2.25rem]">
+                  <div className="font-serif text-2xl font-light text-emerald-300 sm:text-3xl md:text-[2.25rem]">
                     {s.value}
                   </div>
-                  <div className="mt-2 text-[11px] uppercase tracking-eyebrow text-canvas/60">
+                  <div className="mt-2 text-[10px] uppercase tracking-eyebrow text-canvas/60 sm:text-[11px]">
                     {s.label}
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
+      <section className="bg-canvas section-y">
         <div className="container-x">
           <div className="grid gap-20 lg:grid-cols-12">
             <Reveal className="lg:col-span-5">
@@ -124,7 +124,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-ink-900/10 bg-sand-50/40 py-32">
+      <section className="border-y border-ink-900/10 bg-sand-50/40 section-y">
         <div className="container-x">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -144,28 +144,28 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="mt-20 divide-y divide-ink-900/10 border-y border-ink-900/10">
+          <div className="mt-12 divide-y divide-ink-900/10 border-y border-ink-900/10 md:mt-20">
             {practiceAreas.map((area, i) => (
               <Reveal key={area.slug} delay={i * 0.06}>
                 <Link
                   href={`/practice-areas#${area.slug}`}
-                  className="group grid items-center gap-8 py-10 transition md:grid-cols-12"
+                  className="group block py-8 transition md:py-10"
                 >
-                  <div className="font-serif text-xl font-light text-emerald-700 md:col-span-1">
-                    {area.number}
-                  </div>
-                  <div className="md:col-span-5">
-                    <div className="font-serif text-2xl font-light text-ink-900 transition group-hover:text-emerald-800 md:text-3xl">
-                      {area.title}
+                  <div className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-5 md:grid-cols-12 md:items-center md:gap-8">
+                    <div className="font-serif text-base font-light text-emerald-700 md:col-span-1 md:text-xl">
+                      {area.number}
                     </div>
-                  </div>
-                  <div className="text-sm leading-relaxed text-ink-700 md:col-span-5">
-                    {area.short}
-                  </div>
-                  <div className="md:col-span-1 md:text-right">
-                    <span className="text-[12px] uppercase tracking-eyebrow text-emerald-800">
+                    <div className="md:col-span-5">
+                      <div className="font-serif text-xl font-light leading-tight text-ink-900 transition group-hover:text-emerald-800 sm:text-2xl md:text-3xl">
+                        {area.title}
+                      </div>
+                    </div>
+                    <div className="text-[11px] uppercase tracking-eyebrow text-emerald-800 md:order-last md:col-span-1 md:text-right">
                       Read
-                    </span>
+                    </div>
+                    <div className="col-span-3 mt-3 text-[13px] leading-relaxed text-ink-700 md:order-3 md:col-span-5 md:mt-0 md:text-sm">
+                      {area.short}
+                    </div>
                   </div>
                 </Link>
               </Reveal>
@@ -174,7 +174,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
+      <section className="bg-canvas section-y">
         <div className="container-x">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -197,7 +197,7 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="mt-20 grid gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-14 md:mt-20 lg:grid-cols-4 lg:gap-y-16">
             {teamOnHome.map((a, i) => (
               <Reveal key={a.slug} delay={i * 0.04}>
                 <Link href={`/people#${a.slug}`} className="group block">
@@ -210,10 +210,10 @@ export default function HomePage() {
                       className="object-cover grayscale transition duration-700 group-hover:grayscale-0"
                     />
                   </div>
-                  <h3 className="mt-6 font-serif text-xl font-light text-ink-900 transition group-hover:text-emerald-800">
+                  <h3 className="mt-4 font-serif text-base font-light leading-tight text-ink-900 transition group-hover:text-emerald-800 sm:mt-5 sm:text-lg lg:mt-6 lg:text-xl">
                     {a.name}
                   </h3>
-                  <div className="mt-1 text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700">
+                  <div className="mt-1 text-[10px] font-medium uppercase tracking-eyebrow text-emerald-700 sm:text-[11px]">
                     {a.title}
                   </div>
                 </Link>
@@ -223,16 +223,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-emerald-950 py-32 text-canvas">
+      <section className="relative isolate overflow-hidden bg-emerald-950 section-y text-canvas">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_60%,rgba(89,165,127,0.16),transparent_55%)]" />
-        <div className="container-x grid gap-16 lg:grid-cols-12 lg:items-center">
+        <div className="container-x grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden lg:max-w-none">
               <Image
                 src="/people/stephen-n-sher.jpg"
                 alt="Stephen N. Sher, Founder"
                 fill
-                sizes="(min-width: 1024px) 40vw, 90vw"
+                sizes="(min-width: 1024px) 40vw, (min-width: 640px) 60vw, 85vw"
                 className="object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-950/30 via-transparent to-transparent" />
@@ -242,7 +242,7 @@ export default function HomePage() {
           <Reveal delay={0.1} className="lg:col-span-7">
             <div className="eyebrow text-emerald-300">The firm credo</div>
             <div className="mt-4 h-px w-12 bg-emerald-300/70" />
-            <blockquote className="mt-10 font-serif text-[1.6rem] font-light leading-[1.3] tracking-[-0.01em] text-canvas md:text-[2.25rem]">
+            <blockquote className="mt-8 font-serif text-[1.35rem] font-light leading-[1.3] tracking-[-0.01em] text-canvas sm:mt-10 sm:text-[1.6rem] md:text-[2.25rem]">
               <span className="text-emerald-300">"</span>We know what we are
               doing,{" "}
               <span className="italic text-emerald-300">
@@ -250,7 +250,7 @@ export default function HomePage() {
               </span>
               <span className="text-emerald-300">"</span>
             </blockquote>
-            <div className="mt-10 flex items-baseline gap-4">
+            <div className="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1 sm:mt-10">
               <span className="font-serif text-lg font-light italic">
                 Sher, LLP
               </span>
@@ -262,7 +262,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
+      <section className="bg-canvas section-y">
         <div className="container-x">
           <div className="grid gap-16 lg:grid-cols-12">
             <Reveal className="lg:col-span-5">
@@ -287,12 +287,12 @@ export default function HomePage() {
                 {clientTypes.map((c, i) => (
                   <li
                     key={c}
-                    className="flex items-baseline gap-6 border-b border-ink-900/10 py-5"
+                    className="flex items-baseline gap-5 border-b border-ink-900/10 py-4 sm:gap-6 sm:py-5"
                   >
-                    <span className="font-serif text-base font-light text-emerald-700">
+                    <span className="font-serif text-sm font-light text-emerald-700 sm:text-base">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-serif text-xl font-light text-ink-900 md:text-[1.5rem]">
+                    <span className="font-serif text-lg font-light text-ink-900 sm:text-xl md:text-[1.5rem]">
                       {c}
                     </span>
                   </li>
@@ -303,9 +303,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-ink-900/10 bg-sand-50/40 py-32">
+      <section className="border-t border-ink-900/10 bg-sand-50/40 section-y">
         <div className="container-x">
-          <div className="grid items-center gap-16 lg:grid-cols-12">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-7">
               <div className="eyebrow">Start a conversation</div>
               <div className="rule mt-4" />
@@ -322,9 +322,9 @@ export default function HomePage() {
               <div className="flex flex-col gap-4">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-between border-b border-ink-900/15 py-6 transition hover:border-emerald-800"
+                  className="group flex flex-wrap items-center justify-between gap-3 border-b border-ink-900/15 py-5 transition hover:border-emerald-800 sm:py-6"
                 >
-                  <span className="font-serif text-xl font-light italic text-ink-900 group-hover:text-emerald-800">
+                  <span className="font-serif text-lg font-light italic text-ink-900 group-hover:text-emerald-800 sm:text-xl">
                     Inquire about a transaction
                   </span>
                   <span className="text-[11px] uppercase tracking-eyebrow text-emerald-800">
@@ -333,9 +333,9 @@ export default function HomePage() {
                 </Link>
                 <a
                   href={`tel:${site.phoneTel}`}
-                  className="group flex items-center justify-between border-b border-ink-900/15 py-6 transition hover:border-emerald-800"
+                  className="group flex flex-wrap items-center justify-between gap-3 border-b border-ink-900/15 py-5 transition hover:border-emerald-800 sm:py-6"
                 >
-                  <span className="font-serif text-xl font-light text-ink-900 group-hover:text-emerald-800">
+                  <span className="break-words font-serif text-base font-light text-ink-900 group-hover:text-emerald-800 sm:text-xl">
                     {site.phone}
                   </span>
                   <span className="text-[11px] uppercase tracking-eyebrow text-emerald-800">
@@ -344,9 +344,9 @@ export default function HomePage() {
                 </a>
                 <a
                   href={`mailto:${site.email}`}
-                  className="group flex items-center justify-between border-b border-ink-900/15 py-6 transition hover:border-emerald-800"
+                  className="group flex flex-wrap items-center justify-between gap-3 border-b border-ink-900/15 py-5 transition hover:border-emerald-800 sm:py-6"
                 >
-                  <span className="font-serif text-xl font-light text-ink-900 group-hover:text-emerald-800">
+                  <span className="break-words font-serif text-base font-light text-ink-900 group-hover:text-emerald-800 sm:text-xl">
                     {site.email}
                   </span>
                   <span className="text-[11px] uppercase tracking-eyebrow text-emerald-800">

@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 export default function Footer() {
   return (
     <footer className="bg-emerald-950 text-canvas">
-      <div className="container-x grid gap-16 py-24 md:grid-cols-12">
+      <div className="container-x grid gap-10 py-16 sm:gap-12 md:grid-cols-12 md:gap-16 md:py-24">
         <div className="md:col-span-5">
           <div className="flex items-baseline gap-2">
             <span className="font-serif text-3xl font-light tracking-tight">

@@ -16,20 +16,20 @@ const mapSrc =
 export default function ContactPage() {
   return (
     <>
-      <section className="relative bg-emerald-950 pb-32 pt-44 text-canvas">
+      <section className="hero-y relative bg-emerald-950 text-canvas">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_30%,rgba(89,165,127,0.15),transparent_55%)]" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">Connect</div>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-8 max-w-5xl font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.022em] md:text-6xl lg:text-[5rem]">
+            <h1 className="heading-hero mt-6 max-w-5xl sm:mt-8">
               Let's talk about{" "}
               <span className="italic text-emerald-300">your transaction.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.18}>
-            <p className="mt-10 max-w-2xl text-base leading-[1.75] text-canvas/75 md:text-[1.0625rem]">
+            <p className="mt-8 max-w-2xl text-[15px] leading-[1.7] text-canvas/75 sm:mt-10 sm:text-base md:text-[1.0625rem]">
               Tell us about the deal. We respond the same business day with a
               short read on fit, timing, and how we would staff it.
             </p>
@@ -37,14 +37,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
-        <div className="container-x grid gap-16 lg:grid-cols-12">
+      <section className="bg-canvas section-y">
+        <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <div className="eyebrow">Direct lines</div>
             <div className="rule mt-4" />
             <h2 className="heading-section mt-10">The fastest way in.</h2>
 
-            <div className="mt-12 space-y-10">
+            <div className="mt-10 space-y-8 md:mt-12 md:space-y-10">
               <InfoRow icon={Phone} label="Main line">
                 <a
                   href={`tel:${site.phoneTel}`}
@@ -72,25 +72,23 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-7">
-            <div className="border border-ink-900/10 bg-sand-50/40 p-8 md:p-12">
+            <div className="border border-ink-900/10 bg-sand-50/40 p-6 sm:p-8 md:p-12">
               <ContactForm />
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-t border-ink-900/10 bg-canvas pb-32">
+      <section className="border-t border-ink-900/10 bg-canvas pb-20 md:pb-32">
         <div className="container-x">
           <Reveal>
             <div className="overflow-hidden border border-ink-900/10">
               <iframe
                 src={mapSrc}
                 title="Sher, LLP office location"
-                width="100%"
-                height="480"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="block w-full grayscale"
+                className="block aspect-[4/3] w-full grayscale md:aspect-[16/7]"
               />
             </div>
           </Reveal>
@@ -119,7 +117,7 @@ function InfoRow({
         <div className="text-[11px] font-medium uppercase tracking-eyebrow text-ink-500">
           {label}
         </div>
-        <div className="mt-2 font-serif text-xl font-light leading-snug text-ink-900">
+        <div className="mt-2 break-words font-serif text-lg font-light leading-snug text-ink-900 sm:text-xl">
           {children}
         </div>
       </div>

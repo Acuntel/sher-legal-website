@@ -26,7 +26,19 @@ body {
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-7xl px-6 lg:px-12;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-12;
+  }
+
+  .section-y {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-y-sm {
+    @apply py-16 md:py-24;
+  }
+
+  .hero-y {
+    @apply pb-20 pt-32 md:pb-32 md:pt-44;
   }
 
   .btn-primary {
@@ -46,11 +58,15 @@ body {
   }
 
   .heading-display {
-    @apply font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-ink-900 md:text-6xl lg:text-7xl;
+    @apply font-serif text-[2.25rem] font-light leading-[1.05] tracking-[-0.02em] text-ink-900 sm:text-[2.6rem] md:text-6xl lg:text-7xl;
   }
 
   .heading-section {
-    @apply font-serif text-3xl font-light leading-[1.1] tracking-[-0.015em] text-ink-900 md:text-[2.5rem];
+    @apply font-serif text-[1.75rem] font-light leading-[1.15] tracking-[-0.015em] text-ink-900 sm:text-3xl md:text-[2.5rem];
+  }
+
+  .heading-hero {
+    @apply font-serif text-[2.25rem] font-light leading-[1.05] tracking-[-0.022em] sm:text-[2.75rem] md:text-[4.5rem] lg:text-[6rem];
   }
 
   .prose-body {

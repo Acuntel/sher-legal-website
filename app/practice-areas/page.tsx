@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 export default function PracticeAreasPage() {
   return (
     <>
-      <section className="relative bg-emerald-950 pb-32 pt-44 text-canvas">
+      <section className="hero-y relative bg-emerald-950 text-canvas">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_30%,rgba(89,165,127,0.15),transparent_55%)]" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">Practice</div>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-8 max-w-5xl font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.022em] md:text-6xl lg:text-[5rem]">
+            <h1 className="heading-hero mt-6 max-w-5xl sm:mt-8">
               Where we work,{" "}
               <span className="italic text-emerald-300">
                 and where we close.
@@ -27,7 +27,7 @@ export default function PracticeAreasPage() {
             </h1>
           </Reveal>
           <Reveal delay={0.18}>
-            <p className="mt-10 max-w-2xl text-base leading-[1.75] text-canvas/75 md:text-[1.0625rem]">
+            <p className="mt-8 max-w-2xl text-[15px] leading-[1.7] text-canvas/75 sm:mt-10 sm:text-base md:text-[1.0625rem]">
               Sher, LLP is a focused transactional practice. We are deep in
               healthcare real estate, commercial financing, and HUD-insured
               lending, and that depth shows up at the closing table.
@@ -35,12 +35,12 @@ export default function PracticeAreasPage() {
           </Reveal>
 
           <Reveal delay={0.28}>
-            <nav className="mt-16 flex flex-wrap gap-3">
+            <nav className="mt-10 flex flex-wrap gap-2 sm:mt-16 sm:gap-3">
               {practiceAreas.map((p) => (
                 <Link
                   key={p.slug}
                   href={`#${p.slug}`}
-                  className="rounded-full border border-canvas/25 px-5 py-2.5 text-[12px] font-medium uppercase tracking-wide text-canvas/85 transition hover:border-emerald-300 hover:text-emerald-300"
+                  className="rounded-full border border-canvas/25 px-4 py-2 text-[11px] font-medium uppercase tracking-wide text-canvas/85 transition hover:border-emerald-300 hover:text-emerald-300 sm:px-5 sm:py-2.5 sm:text-[12px]"
                 >
                   {p.title}
                 </Link>
@@ -55,13 +55,13 @@ export default function PracticeAreasPage() {
           <div
             key={area.slug}
             id={area.slug}
-            className={`scroll-mt-24 border-b border-ink-900/10 py-28 ${
+            className={`scroll-mt-24 border-b border-ink-900/10 py-16 md:py-24 lg:py-28 ${
               idx % 2 === 1 ? "bg-sand-50/40" : ""
             }`}
           >
-            <div className="container-x grid gap-16 lg:grid-cols-12">
+            <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-16">
               <Reveal className="lg:col-span-5">
-                <div className="font-serif text-5xl font-light text-emerald-700/60">
+                <div className="font-serif text-4xl font-light text-emerald-700/60 md:text-5xl">
                   {area.number}
                 </div>
                 <div className="rule mt-6" />
@@ -99,7 +99,7 @@ export default function PracticeAreasPage() {
         ))}
       </section>
 
-      <section className="bg-emerald-950 py-28 text-canvas">
+      <section className="bg-emerald-950 section-y-sm text-canvas">
         <div className="container-x">
           <Reveal>
             <div className="grid items-center gap-12 lg:grid-cols-2">

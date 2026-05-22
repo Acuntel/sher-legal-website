@@ -30,32 +30,32 @@ function PersonCard({ a }: { a: Attorney }) {
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-emerald-950/35 to-transparent opacity-0 transition group-hover:opacity-100" />
       </div>
-      <div className="mt-7">
-        <h3 className="font-serif text-2xl font-light text-ink-900">
+      <div className="mt-5 sm:mt-7">
+        <h3 className="font-serif text-lg font-light leading-tight text-ink-900 sm:text-xl md:text-2xl">
           {a.name}
         </h3>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700">
+        <div className="mt-1.5 text-[10px] font-medium uppercase tracking-eyebrow text-emerald-700 sm:text-[11px]">
           {a.title}
         </div>
-        <div className="mt-6 space-y-1.5 text-[13px] text-ink-700">
+        <div className="mt-4 space-y-1 text-[12px] text-ink-700 sm:mt-6 sm:space-y-1.5 sm:text-[13px]">
           {a.focus.slice(0, 3).map((f) => (
             <div key={f}>{f}</div>
           ))}
         </div>
-        <div className="mt-7 flex flex-col gap-2 text-[13px] text-ink-700">
+        <div className="mt-5 flex flex-col gap-2 text-[12px] text-ink-700 sm:mt-7 sm:text-[13px]">
           <a
             href={`tel:${a.phoneTel}`}
-            className="inline-flex items-center gap-3 transition hover:text-emerald-800"
+            className="inline-flex min-h-[28px] items-center gap-3 transition hover:text-emerald-800"
           >
-            <Phone className="h-3.5 w-3.5" strokeWidth={1.6} />
-            {a.phone}
+            <Phone className="h-3.5 w-3.5 flex-shrink-0" strokeWidth={1.6} />
+            <span className="truncate">{a.phone}</span>
           </a>
           <a
             href={`mailto:${a.email}`}
-            className="inline-flex items-center gap-3 transition hover:text-emerald-800"
+            className="inline-flex min-h-[28px] items-center gap-3 transition hover:text-emerald-800"
           >
-            <Mail className="h-3.5 w-3.5" strokeWidth={1.6} />
-            {a.email}
+            <Mail className="h-3.5 w-3.5 flex-shrink-0" strokeWidth={1.6} />
+            <span className="truncate">{a.email}</span>
           </a>
         </div>
       </div>
@@ -78,8 +78,8 @@ function Section({
   return (
     <div id={id} className="scroll-mt-32">
       <Reveal>
-        <div className="flex items-baseline justify-between border-b border-ink-900/15 pb-5">
-          <h2 className="font-serif text-2xl font-light text-ink-900 md:text-[2rem]">
+        <div className="flex items-baseline justify-between gap-4 border-b border-ink-900/15 pb-5">
+          <h2 className="font-serif text-xl font-light text-ink-900 sm:text-2xl md:text-[2rem]">
             {title}
           </h2>
           <div className="text-[11px] uppercase tracking-eyebrow text-ink-500">
@@ -87,7 +87,7 @@ function Section({
           </div>
         </div>
       </Reveal>
-      <div className="mt-14 grid gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-14 md:mt-14 lg:grid-cols-4 lg:gap-y-16">
         {people.map((a, i) => (
           <Reveal key={a.slug} delay={i * 0.05}>
             <PersonCard a={a} />
@@ -101,14 +101,14 @@ function Section({
 export default function PeoplePage() {
   return (
     <>
-      <section className="relative bg-emerald-950 pb-32 pt-44 text-canvas">
+      <section className="hero-y relative bg-emerald-950 text-canvas">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(89,165,127,0.15),transparent_55%)]" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">People</div>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-8 max-w-5xl font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.022em] md:text-6xl lg:text-[5rem]">
+            <h1 className="heading-hero mt-6 max-w-5xl sm:mt-8">
               The team{" "}
               <span className="italic text-emerald-300">
                 you'll actually work with.
@@ -116,7 +116,7 @@ export default function PeoplePage() {
             </h1>
           </Reveal>
           <Reveal delay={0.18}>
-            <p className="mt-10 max-w-2xl text-base leading-[1.75] text-canvas/75 md:text-[1.0625rem]">
+            <p className="mt-8 max-w-2xl text-[15px] leading-[1.7] text-canvas/75 sm:mt-10 sm:text-base md:text-[1.0625rem]">
               Sher, LLP is intentionally senior-heavy. Every engagement is
               partner-led, and our attorneys and staff have been working
               together on closings for years.
@@ -125,8 +125,8 @@ export default function PeoplePage() {
         </div>
       </section>
 
-      <section id="attorneys" className="bg-canvas py-32">
-        <div className="container-x space-y-28">
+      <section id="attorneys" className="bg-canvas section-y">
+        <div className="container-x space-y-20 md:space-y-28">
           <Section title="Partners" count={partners.length} people={partners} />
           <Section
             title="Counsel & Associates"
@@ -142,7 +142,7 @@ export default function PeoplePage() {
         </div>
       </section>
 
-      <section className="border-t border-ink-900/10 bg-sand-50/40 py-24">
+      <section className="border-t border-ink-900/10 bg-sand-50/40 section-y-sm">
         <div className="container-x">
           <Reveal>
             <div className="grid items-center gap-12 lg:grid-cols-2">

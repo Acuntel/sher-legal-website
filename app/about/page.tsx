@@ -29,14 +29,14 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative bg-emerald-950 pb-32 pt-44 text-canvas">
+      <section className="hero-y relative bg-emerald-950 text-canvas">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(89,165,127,0.16),transparent_55%)]" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">About</div>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-8 max-w-5xl font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.022em] md:text-6xl lg:text-[5rem]">
+            <h1 className="heading-hero mt-6 max-w-5xl sm:mt-8">
               A boutique transactional practice built around{" "}
               <span className="italic text-emerald-300">
                 the way deals close.
@@ -44,7 +44,7 @@ export default function AboutPage() {
             </h1>
           </Reveal>
           <Reveal delay={0.18}>
-            <p className="mt-10 max-w-2xl text-base leading-[1.75] text-canvas/75 md:text-[1.0625rem]">
+            <p className="mt-8 max-w-2xl text-[15px] leading-[1.7] text-canvas/75 sm:mt-10 sm:text-base md:text-[1.0625rem]">
               Sher, LLP serves owners, operators, and lenders in the healthcare
               real estate industry with senior attention and a deal-first
               mindset.
@@ -53,8 +53,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
-        <div className="container-x grid gap-20 lg:grid-cols-12">
+      <section className="bg-canvas section-y">
+        <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
             <div className="eyebrow">Our story</div>
             <div className="rule mt-4" />
@@ -90,7 +90,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-ink-900/10 bg-sand-50/40 py-32">
+      <section className="border-t border-ink-900/10 bg-sand-50/40 section-y">
         <div className="container-x">
           <Reveal>
             <div className="eyebrow">Principles</div>
@@ -99,7 +99,7 @@ export default function AboutPage() {
               Three principles run through every engagement.
             </h2>
           </Reveal>
-          <div className="mt-20 grid gap-12 md:grid-cols-3">
+          <div className="mt-12 grid gap-10 sm:grid-cols-2 md:mt-20 md:grid-cols-3 md:gap-12">
             {principles.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
                 <div className="flex h-full flex-col border-t border-emerald-800 pt-8">
@@ -119,7 +119,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
+      <section className="bg-canvas section-y">
         <div className="container-x">
           <Reveal>
             <div className="grid items-center gap-12 border-t border-ink-900/10 pt-16 lg:grid-cols-2">
