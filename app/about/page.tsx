@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import HeroBackground from "@/components/HeroBackground";
+import { imagery } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -29,8 +31,8 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <section className="hero-y relative bg-emerald-950 text-canvas">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(89,165,127,0.16),transparent_55%)]" />
+      <section className="hero-y relative isolate overflow-hidden bg-emerald-950 text-canvas">
+        <HeroBackground src={imagery.aboutHero} intensity="default" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">About</div>
@@ -54,13 +56,22 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-canvas section-y">
-        <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-20">
+        <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <div className="eyebrow">Our story</div>
             <div className="rule mt-4" />
             <h2 className="heading-section mt-10">
               Twenty-five years of closing the deal.
             </h2>
+            <div className="mt-10 hidden aspect-[4/5] overflow-hidden lg:block">
+              <img
+                src={imagery.aboutStory}
+                alt=""
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7">
             <div className="space-y-7 prose-body">
@@ -85,6 +96,15 @@ export default function AboutPage() {
                 they get the partner on the phone, the deal moves, and the
                 documents serve the transaction.
               </p>
+            </div>
+            <div className="mt-10 aspect-[16/10] overflow-hidden lg:hidden">
+              <img
+                src={imagery.aboutStory}
+                alt=""
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </Reveal>
         </div>

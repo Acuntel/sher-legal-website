@@ -32,6 +32,19 @@ export const clientTypes = [
   "Capital partners",
 ];
 
+const u = (id: string, w = 2400) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=85`;
+
+export const imagery = {
+  homeHero: u("photo-1486325212027-8081e485255e"),
+  homeAtmosphere: u("photo-1521587760476-6c12a4b040da"),
+  aboutHero: u("photo-1486406146926-c627a92ad1ab"),
+  aboutStory: u("photo-1582719188393-bb71ca45dbb9"),
+  practiceHero: u("photo-1604328698692-f76ea9498e76"),
+  peopleHero: u("photo-1497366216548-37526070297c"),
+  contactHero: u("photo-1551836022-deb4988cc6c0"),
+};
+
 export type Attorney = {
   slug: string;
   name: string;

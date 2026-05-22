@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { attorneys, type Attorney } from "@/lib/site";
+import HeroBackground from "@/components/HeroBackground";
+import { attorneys, imagery, type Attorney } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "People",
@@ -101,8 +102,8 @@ function Section({
 export default function PeoplePage() {
   return (
     <>
-      <section className="hero-y relative bg-emerald-950 text-canvas">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(89,165,127,0.15),transparent_55%)]" />
+      <section className="hero-y relative isolate overflow-hidden bg-emerald-950 text-canvas">
+        <HeroBackground src={imagery.peopleHero} intensity="heavy" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">People</div>

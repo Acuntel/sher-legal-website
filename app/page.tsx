@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { attorneys, clientTypes, practiceAreas, site } from "@/lib/site";
+import HeroBackground from "@/components/HeroBackground";
+import {
+  attorneys,
+  clientTypes,
+  imagery,
+  practiceAreas,
+  site,
+} from "@/lib/site";
 
 const heroStats = [
   { value: "Since 2006", label: "Established" },
@@ -16,17 +23,7 @@ export default function HomePage() {
   return (
     <>
       <section className="relative isolate min-h-[100svh] overflow-hidden bg-emerald-950 text-canvas">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(89,165,127,0.20),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,29,20,0.55),rgba(5,29,20,0.94))]" />
-          <div
-            className="absolute inset-0 opacity-[0.04] mix-blend-screen"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            }}
-          />
-        </div>
+        <HeroBackground src={imagery.homeHero} intensity="heavy" />
 
         <div className="container-x relative flex min-h-[100svh] flex-col justify-between pb-10 pt-28 sm:pb-12 sm:pt-36">
           <Reveal>
@@ -119,6 +116,35 @@ export default function HomePage() {
                 <span className="h-px w-8 bg-emerald-800" />
                 About the firm
               </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative isolate overflow-hidden bg-emerald-950">
+        <div className="relative aspect-[16/10] sm:aspect-[16/7] lg:aspect-[21/8]">
+          <img
+            src={imagery.homeAtmosphere}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(5,29,20,0.78)_0%,rgba(5,29,20,0.35)_55%,rgba(5,29,20,0.6)_100%)]" />
+          <div className="container-x relative flex h-full items-center">
+            <Reveal>
+              <div className="max-w-2xl text-canvas">
+                <div className="text-[11px] uppercase tracking-eyebrow text-emerald-300">
+                  Where deals close
+                </div>
+                <div className="mt-5 h-px w-12 bg-emerald-300/70" />
+                <p className="mt-8 font-serif text-2xl font-light leading-[1.25] tracking-[-0.01em] sm:text-3xl md:text-[2.25rem]">
+                  Boutique by design. Healthcare by focus.{" "}
+                  <span className="italic text-emerald-300">
+                    Partner-led on every closing.
+                  </span>
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>

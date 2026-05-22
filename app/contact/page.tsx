@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Mail, MapPin, Phone, type LucideIcon } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
-import { site } from "@/lib/site";
+import HeroBackground from "@/components/HeroBackground";
+import { imagery, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,8 +17,8 @@ const mapSrc =
 export default function ContactPage() {
   return (
     <>
-      <section className="hero-y relative bg-emerald-950 text-canvas">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_30%,rgba(89,165,127,0.15),transparent_55%)]" />
+      <section className="hero-y relative isolate overflow-hidden bg-emerald-950 text-canvas">
+        <HeroBackground src={imagery.contactHero} intensity="heavy" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">Connect</div>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import { practiceAreas } from "@/lib/site";
+import HeroBackground from "@/components/HeroBackground";
+import { imagery, practiceAreas } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Practice Areas",
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
 export default function PracticeAreasPage() {
   return (
     <>
-      <section className="hero-y relative bg-emerald-950 text-canvas">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_30%,rgba(89,165,127,0.15),transparent_55%)]" />
+      <section className="hero-y relative isolate overflow-hidden bg-emerald-950 text-canvas">
+        <HeroBackground src={imagery.practiceHero} intensity="default" />
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-emerald-300">Practice</div>
