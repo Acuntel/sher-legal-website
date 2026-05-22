@@ -8,17 +8,22 @@ import {
   site,
 } from "@/lib/site";
 
-const featuredPartners = attorneys
-  .filter((a) => a.isPartner || a.title === "Founder")
-  .slice(0, 4);
+const heroStats = [
+  { value: "25+", label: "Years of transactional practice" },
+  { value: "500+", label: "Closings nationwide" },
+  { value: "All 50", label: "States served" },
+  { value: "Partner-led", label: "On every engagement" },
+];
+
+const teamOnHome = attorneys.slice(0, 8);
 
 export default function HomePage() {
   return (
     <>
       <section className="relative isolate min-h-[100svh] overflow-hidden bg-emerald-950 text-canvas">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(89,165,127,0.18),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,29,20,0.55),rgba(5,29,20,0.92))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(89,165,127,0.20),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,29,20,0.55),rgba(5,29,20,0.94))]" />
           <div
             className="absolute inset-0 opacity-[0.04] mix-blend-screen"
             style={{
@@ -28,7 +33,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="container-x relative flex min-h-[100svh] flex-col justify-between pb-16 pt-40">
+        <div className="container-x relative flex min-h-[100svh] flex-col justify-between pb-12 pt-36">
           <Reveal>
             <div className="flex items-center gap-4 text-[11px] uppercase tracking-eyebrow text-emerald-300">
               <span className="block h-px w-10 bg-emerald-300/60" />
@@ -68,16 +73,17 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={0.3}>
-            <div className="mt-20 flex flex-wrap items-baseline justify-between gap-6 border-t border-canvas/10 pt-8 text-[12px] text-canvas/55">
-              <div className="uppercase tracking-eyebrow">
-                Skokie, Illinois · Practice nationwide
-              </div>
-              <a
-                href={`tel:${site.phoneTel}`}
-                className="font-serif text-xl font-light italic text-canvas transition hover:text-emerald-300"
-              >
-                {site.phone}
-              </a>
+            <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-canvas/10 pt-10 md:grid-cols-4">
+              {heroStats.map((s) => (
+                <div key={s.label}>
+                  <div className="font-serif text-3xl font-light text-emerald-300 md:text-[2.25rem]">
+                    {s.value}
+                  </div>
+                  <div className="mt-2 text-[11px] uppercase tracking-eyebrow text-canvas/60">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -115,7 +121,7 @@ export default function HomePage() {
                 href="/about"
                 className="mt-12 inline-flex items-center gap-3 text-[12px] font-medium uppercase tracking-eyebrow text-emerald-800 transition hover:text-emerald-700"
               >
-                <span className="h-px w-8 bg-emerald-800 transition group-hover:w-12" />
+                <span className="h-px w-8 bg-emerald-800" />
                 About the firm
               </Link>
             </Reveal>
@@ -181,64 +187,102 @@ export default function HomePage() {
                 <div className="eyebrow">People</div>
                 <div className="rule mt-4" />
                 <h2 className="heading-section mt-10 max-w-2xl">
-                  Senior attorneys you'll actually work with.
+                  The team you'll{" "}
+                  <span className="italic text-emerald-800">
+                    actually work with.
+                  </span>
                 </h2>
               </div>
               <Link
                 href="/people"
                 className="text-[12px] font-medium uppercase tracking-eyebrow text-emerald-800 transition hover:text-emerald-700"
               >
-                Meet the full team
+                Read bios
               </Link>
             </div>
           </Reveal>
 
-          <div className="mt-20 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredPartners.map((a, i) => (
-              <Reveal key={a.slug} delay={i * 0.05}>
-                <article>
+          <div className="mt-20 grid gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+            {teamOnHome.map((a, i) => (
+              <Reveal key={a.slug} delay={i * 0.04}>
+                <Link href={`/people#${a.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-emerald-100">
                     <Image
                       src={a.imageSrc}
                       alt={a.name}
                       fill
                       sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
-                      className="object-cover grayscale transition duration-700 hover:grayscale-0"
+                      className="object-cover grayscale transition duration-700 group-hover:grayscale-0"
                     />
                   </div>
-                  <h3 className="mt-6 font-serif text-xl font-light text-ink-900">
+                  <h3 className="mt-6 font-serif text-xl font-light text-ink-900 transition group-hover:text-emerald-800">
                     {a.name}
                   </h3>
                   <div className="mt-1 text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700">
                     {a.title}
                   </div>
-                </article>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-emerald-950 py-32 text-canvas">
+      <section className="relative isolate overflow-hidden bg-emerald-950 py-32 text-canvas">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_60%,rgba(89,165,127,0.16),transparent_55%)]" />
+        <div className="container-x grid gap-16 lg:grid-cols-12 lg:items-center">
+          <Reveal className="lg:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/people/stephen-n-sher.jpg"
+                alt="Stephen N. Sher, Founder"
+                fill
+                sizes="(min-width: 1024px) 40vw, 90vw"
+                className="object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-950/30 via-transparent to-transparent" />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1} className="lg:col-span-7">
+            <div className="eyebrow text-emerald-300">From the founder</div>
+            <div className="mt-4 h-px w-12 bg-emerald-300/70" />
+            <blockquote className="mt-10 font-serif text-[1.6rem] font-light leading-[1.3] tracking-[-0.01em] text-canvas md:text-[2.25rem]">
+              <span className="text-emerald-300">"</span>We built Sher, LLP so
+              healthcare owners would get the partner on the phone, the deal
+              moving, and the documents serving the transaction.
+              <span className="text-emerald-300">"</span>
+            </blockquote>
+            <div className="mt-10 flex items-baseline gap-4">
+              <span className="font-serif text-lg font-light italic">
+                Stephen N. Sher
+              </span>
+              <span className="text-[11px] uppercase tracking-eyebrow text-emerald-300">
+                Founder
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-canvas py-32">
         <div className="container-x">
           <Reveal>
-            <div className="eyebrow text-emerald-300">
-              Representative matters
-            </div>
-            <div className="mt-4 h-px w-12 bg-emerald-300/70" />
-            <h2 className="mt-10 max-w-3xl font-serif text-3xl font-light leading-[1.15] tracking-[-0.015em] md:text-[2.5rem]">
+            <div className="eyebrow">Representative matters</div>
+            <div className="rule mt-4" />
+            <h2 className="heading-section mt-10 max-w-2xl">
               A small selection of recent work.
             </h2>
           </Reveal>
 
-          <div className="mt-16 grid gap-px overflow-hidden border border-canvas/10 bg-canvas/10 md:grid-cols-2">
+          <div className="mt-16 grid gap-px overflow-hidden border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">
             {representativeMatters.map((m, i) => (
               <Reveal key={m.headline} delay={i * 0.05}>
-                <div className="h-full bg-emerald-950 p-10">
-                  <div className="text-[11px] font-medium uppercase tracking-eyebrow text-emerald-300">
+                <div className="h-full bg-canvas p-10">
+                  <div className="text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700">
                     {m.category}
                   </div>
-                  <p className="mt-6 font-serif text-xl font-light leading-snug text-canvas md:text-[1.625rem]">
+                  <p className="mt-6 font-serif text-xl font-light leading-snug text-ink-900 md:text-[1.625rem]">
                     {m.headline}
                   </p>
                 </div>
@@ -247,7 +291,7 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={0.2}>
-            <p className="mt-10 max-w-2xl text-sm text-canvas/60">
+            <p className="mt-10 max-w-2xl text-sm text-ink-500">
               Illustrative. Some matters are summarized for client
               confidentiality.
             </p>
@@ -255,7 +299,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-canvas py-32">
+      <section className="border-t border-ink-900/10 bg-sand-50/40 py-32">
         <div className="container-x">
           <div className="grid items-center gap-16 lg:grid-cols-12">
             <Reveal className="lg:col-span-7">

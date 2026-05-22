@@ -3,6 +3,7 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="bg-canvas font-sans text-ink-900 antialiased">
+        <Preloader />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
