@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone, Clock, type LucideIcon } from "lucide-react";
+import { Mail, MapPin, Phone, type LucideIcon } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
@@ -67,9 +67,6 @@ export default function ContactPage() {
                 {site.address.line2}
                 <br />
                 {site.address.city}, {site.address.state} {site.address.zip}
-              </InfoRow>
-              <InfoRow icon={Clock} label="Hours">
-                {site.hours}
               </InfoRow>
             </div>
           </Reveal>

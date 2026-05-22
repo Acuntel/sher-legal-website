@@ -1,18 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import {
-  attorneys,
-  practiceAreas,
-  representativeMatters,
-  site,
-} from "@/lib/site";
+import { attorneys, clientTypes, practiceAreas, site } from "@/lib/site";
 
 const heroStats = [
-  { value: "25+", label: "Years of transactional practice" },
-  { value: "500+", label: "Closings nationwide" },
-  { value: "All 50", label: "States served" },
-  { value: "Partner-led", label: "On every engagement" },
+  { value: "Since 2006", label: "Established" },
+  { value: "Hundreds", label: "Of healthcare closings" },
+  { value: "Nationwide", label: "Across the country" },
+  { value: "Boutique", label: "Senior-led practice" },
 ];
 
 const teamOnHome = attorneys.slice(0, 8);
@@ -137,7 +132,7 @@ export default function HomePage() {
                 <div className="eyebrow">Practice</div>
                 <div className="rule mt-4" />
                 <h2 className="heading-section mt-10 max-w-2xl">
-                  Four areas. One closing table.
+                  Five areas. One closing table.
                 </h2>
               </div>
               <Link
@@ -245,20 +240,22 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-7">
-            <div className="eyebrow text-emerald-300">From the founder</div>
+            <div className="eyebrow text-emerald-300">The firm credo</div>
             <div className="mt-4 h-px w-12 bg-emerald-300/70" />
             <blockquote className="mt-10 font-serif text-[1.6rem] font-light leading-[1.3] tracking-[-0.01em] text-canvas md:text-[2.25rem]">
-              <span className="text-emerald-300">"</span>We built Sher, LLP so
-              healthcare owners would get the partner on the phone, the deal
-              moving, and the documents serving the transaction.
+              <span className="text-emerald-300">"</span>We know what we are
+              doing,{" "}
+              <span className="italic text-emerald-300">
+                and do what it takes to close a deal.
+              </span>
               <span className="text-emerald-300">"</span>
             </blockquote>
             <div className="mt-10 flex items-baseline gap-4">
               <span className="font-serif text-lg font-light italic">
-                Stephen N. Sher
+                Sher, LLP
               </span>
               <span className="text-[11px] uppercase tracking-eyebrow text-emerald-300">
-                Founder
+                Established {site.founded}
               </span>
             </div>
           </Reveal>
@@ -267,35 +264,42 @@ export default function HomePage() {
 
       <section className="bg-canvas py-32">
         <div className="container-x">
-          <Reveal>
-            <div className="eyebrow">Representative matters</div>
-            <div className="rule mt-4" />
-            <h2 className="heading-section mt-10 max-w-2xl">
-              A small selection of recent work.
-            </h2>
-          </Reveal>
+          <div className="grid gap-16 lg:grid-cols-12">
+            <Reveal className="lg:col-span-5">
+              <div className="eyebrow">Who we represent</div>
+              <div className="rule mt-4" />
+              <h2 className="heading-section mt-10">
+                From entrepreneurs to{" "}
+                <span className="italic text-emerald-800">
+                  institutional capital.
+                </span>
+              </h2>
+              <p className="prose-body mt-8 max-w-md">
+                Sher, LLP represents owners, operators, lenders, and capital
+                partners across the healthcare real estate industry. The same
+                attorneys serve a first-time buyer and a multi-state portfolio
+                owner.
+              </p>
+            </Reveal>
 
-          <div className="mt-16 grid gap-px overflow-hidden border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">
-            {representativeMatters.map((m, i) => (
-              <Reveal key={m.headline} delay={i * 0.05}>
-                <div className="h-full bg-canvas p-10">
-                  <div className="text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700">
-                    {m.category}
-                  </div>
-                  <p className="mt-6 font-serif text-xl font-light leading-snug text-ink-900 md:text-[1.625rem]">
-                    {m.headline}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+            <Reveal delay={0.1} className="lg:col-span-7">
+              <ul className="grid gap-0 border-t border-ink-900/10">
+                {clientTypes.map((c, i) => (
+                  <li
+                    key={c}
+                    className="flex items-baseline gap-6 border-b border-ink-900/10 py-5"
+                  >
+                    <span className="font-serif text-base font-light text-emerald-700">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-serif text-xl font-light text-ink-900 md:text-[1.5rem]">
+                      {c}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
-
-          <Reveal delay={0.2}>
-            <p className="mt-10 max-w-2xl text-sm text-ink-500">
-              Illustrative. Some matters are summarized for client
-              confidentiality.
-            </p>
-          </Reveal>
         </div>
       </section>
 

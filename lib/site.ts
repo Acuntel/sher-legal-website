@@ -8,20 +8,29 @@ export const site = {
   url: "https://sherlegal.com",
   address: {
     line1: "5750 Old Orchard Road",
-    line2: "Suite 460",
+    line2: "Suite 420",
     city: "Skokie",
     state: "IL",
     zip: "60077",
   },
   phone: "(847) 324-7990",
   phoneTel: "+18473247990",
-  email: "info@sherlegal.com",
-  hours: "Monday through Friday, 8:30am to 6:00pm",
+  email: "steve@sherlegal.com",
   founded: 2006,
   social: {
-    linkedin: "https://www.linkedin.com/company/sher-llp",
+    linkedin: "https://www.linkedin.com/company/sher-llp-law",
   },
 } as const;
+
+export const clientTypes = [
+  "Entrepreneurs",
+  "Family operators",
+  "REITs",
+  "Private equity firms",
+  "Regional owners",
+  "Healthcare lenders",
+  "Capital partners",
+];
 
 export type Attorney = {
   slug: string;
@@ -230,13 +239,32 @@ export const practiceAreas: PracticeArea[] = [
       "Mezzanine and preferred equity",
       "Bridge financing",
       "Bond transactions",
+      "Local counsel opinions",
       "Intercreditor and subordination agreements",
       "Refinancings and restructurings",
     ],
   },
   {
-    slug: "hud-loans",
+    slug: "regulatory-licensure",
     number: "03",
+    title: "Healthcare Regulatory & Licensure",
+    short:
+      "Changes of ownership, UPL/IGT leases, management agreements, and the regulatory layer that surrounds every healthcare facility transaction.",
+    long: [
+      "Healthcare facility transactions live or die on the regulatory layer that surrounds them. We handle changes of ownership for skilled nursing facilities, structure UPL and IGT leases, and draft management agreements that satisfy operators, capital partners, and state regulators.",
+    ],
+    bullets: [
+      "Skilled nursing facility changes of ownership (CHOW)",
+      "UPL and IGT leases",
+      "Management agreements",
+      "Operations transfer agreements",
+      "Operator licensure transitions",
+      "Regulatory diligence and structuring",
+    ],
+  },
+  {
+    slug: "hud-loans",
+    number: "04",
     title: "HUD-Insured Lending",
     short:
       "HUD 232 and 232/223(f) loans, HUD Third Party Agreements, and the full HUD closing process for skilled nursing and assisted living facilities.",
@@ -255,7 +283,7 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: "joint-ventures-corporate",
-    number: "04",
+    number: "05",
     title: "Joint Ventures & Corporate",
     short:
       "Joint venture structuring, operating agreements, and general corporate work for healthcare and real estate owners.",
@@ -270,28 +298,5 @@ export const practiceAreas: PracticeArea[] = [
       "Entity formation and corporate governance",
       "1031 exchange structuring",
     ],
-  },
-];
-
-export const representativeMatters = [
-  {
-    category: "Healthcare M&A",
-    headline:
-      "Counsel to a regional operator on the acquisition of a 14-facility skilled nursing portfolio across three states.",
-  },
-  {
-    category: "HUD-Insured Lending",
-    headline:
-      "Borrower's counsel on a $90M HUD 232/223(f) refinance of a multi-state assisted living portfolio.",
-  },
-  {
-    category: "Joint Venture",
-    headline:
-      "Structured a joint venture between a regional operator and an institutional capital partner for a senior housing development.",
-  },
-  {
-    category: "Commercial Real Estate",
-    headline:
-      "Lender's counsel on a $45M bridge facility secured by a portfolio of skilled nursing real estate.",
   },
 ];
