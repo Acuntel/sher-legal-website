@@ -1,170 +1,170 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Building2,
-  HandCoins,
-  Scale,
-  Landmark,
-} from "lucide-react";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { site, attorneys, practiceAreas, stats } from "@/lib/site";
+import {
+  attorneys,
+  practiceAreas,
+  representativeMatters,
+  site,
+} from "@/lib/site";
 
-const valueProps = [
-  {
-    icon: Scale,
-    title: "Senior attention, every deal",
-    body: "You work directly with partners — not a rotating cast of associates. Boutique by design.",
-  },
-  {
-    icon: HandCoins,
-    title: "We close deals",
-    body: "Hundreds of closings nationwide. We know what gets a deal funded — and what gets it stuck.",
-  },
-  {
-    icon: Building2,
-    title: "Healthcare is our home",
-    body: "Skilled nursing, assisted living, CCRCs, home health. We've seen every wrinkle.",
-  },
-  {
-    icon: Landmark,
-    title: "HUD playbook, memorized",
-    body: "232, 223(f), Third Party Agreements. Hundreds of HUD closings inform every move.",
-  },
-];
+const featuredPartners = attorneys
+  .filter((a) => a.isPartner || a.title === "Founder")
+  .slice(0, 4);
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy-950 text-white">
+      <section className="relative isolate min-h-[100svh] overflow-hidden bg-emerald-950 text-canvas">
         <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(89,165,127,0.18),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,29,20,0.55),rgba(5,29,20,0.92))]" />
           <div
-            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2400&q=80')] bg-cover bg-center opacity-30"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-950/85 to-navy-900/60"
-            aria-hidden
-          />
-          <div
-            className="absolute -bottom-32 -left-32 h-[480px] w-[480px] rounded-full bg-gold-500/10 blur-[120px]"
-            aria-hidden
+            className="absolute inset-0 opacity-[0.04] mix-blend-screen"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+            }}
           />
         </div>
 
-        <div className="container-x relative py-32">
+        <div className="container-x relative flex min-h-[100svh] flex-col justify-between pb-16 pt-40">
           <Reveal>
-            <div className="eyebrow text-gold-400">
-              Healthcare Transactions · Commercial Real Estate · HUD
+            <div className="flex items-center gap-4 text-[11px] uppercase tracking-eyebrow text-emerald-300">
+              <span className="block h-px w-10 bg-emerald-300/60" />
+              Healthcare · Real Estate · HUD-Insured Finance
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-              We know what we are doing,{" "}
-              <span className="text-gold-400">
-                and we do what it takes to close.
-              </span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
-              Sher, LLP is a boutique transactional firm representing healthcare
-              facility owners, REITs, private equity, and lenders on the deals
-              that move the industry — from single-asset acquisitions to
-              nine-figure HUD-financed portfolios.
-            </p>
-          </Reveal>
+
+          <div className="grid items-end gap-16 lg:grid-cols-12">
+            <Reveal delay={0.08} className="lg:col-span-8">
+              <h1 className="font-serif text-[3rem] font-light leading-[1.02] tracking-[-0.022em] md:text-[5rem] lg:text-[6.25rem]">
+                Counsel built
+                <br />
+                <span className="italic text-emerald-300">
+                  around the close.
+                </span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.18} className="lg:col-span-4">
+              <p className="max-w-md text-base leading-[1.7] text-canvas/75 md:text-[1.0625rem]">
+                Sher, LLP is a boutique transactional firm representing
+                healthcare facility owners, lenders, and capital partners on the
+                deals that move the industry.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-5">
+                <Link href="/contact" className="btn-primary">
+                  Inquire
+                </Link>
+                <Link
+                  href="/practice-areas"
+                  className="text-[13px] font-medium uppercase tracking-[0.22em] text-canvas/80 transition hover:text-emerald-300"
+                >
+                  Practice areas
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
           <Reveal delay={0.3}>
-            <div className="mt-12 flex flex-wrap items-center gap-4">
-              <Link href="/contact" className="btn-primary">
-                Connect with us <ArrowUpRight className="h-4 w-4" />
-              </Link>
-              <Link href="/people" className="btn-ghost-light">
-                Meet your team
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.45}>
-            <div className="mt-24 grid grid-cols-2 gap-8 border-t border-white/10 pt-10 md:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="font-serif text-3xl text-gold-400 md:text-4xl">
-                    {s.value}
-                  </div>
-                  <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/60">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
+            <div className="mt-20 flex flex-wrap items-baseline justify-between gap-6 border-t border-canvas/10 pt-8 text-[12px] text-canvas/55">
+              <div className="uppercase tracking-eyebrow">
+                Skokie, Illinois · Practice nationwide
+              </div>
+              <a
+                href={`tel:${site.phoneTel}`}
+                className="font-serif text-xl font-light italic text-canvas transition hover:text-emerald-300"
+              >
+                {site.phone}
+              </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-white py-28">
-        <div className="container-x grid gap-16 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
-            <div className="eyebrow">Welcome to Sher, LLP</div>
-            <h2 className="heading-section mt-4">
-              A boutique built for the deal — not the org chart.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-7">
-            <div className="space-y-6 prose-body">
-              <p>
-                Most healthcare transactions don't fail at the negotiation
-                table. They fail at the diligence checklist, the lender's credit
-                committee, and the HUD Third Party Agreement nobody remembered
-                to chase.
-              </p>
-              <p>
-                We built Sher, LLP to fix that. A senior-led team. Direct
-                partner attention. A practice that lives entirely inside
-                healthcare and commercial real estate so we already know what's
-                about to come up — and what it'll cost you if it slips.
-              </p>
-              <p>
-                Whether you're acquiring a single skilled nursing facility or
-                refinancing a multi-state portfolio under HUD, we move the deal
-                from term sheet to funding with the smallest possible distance
-                between the two.
-              </p>
-            </div>
-            <Link
-              href="/about"
-              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-navy-900 transition hover:text-gold-600"
-            >
-              About the firm <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
+      <section className="bg-canvas py-32">
+        <div className="container-x">
+          <div className="grid gap-20 lg:grid-cols-12">
+            <Reveal className="lg:col-span-5">
+              <div className="eyebrow">Welcome</div>
+              <div className="rule mt-4" />
+              <h2 className="heading-section mt-10">
+                A practice built for{" "}
+                <span className="italic text-emerald-800">
+                  the way deals close.
+                </span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1} className="lg:col-span-7">
+              <div className="space-y-7 prose-body">
+                <p>
+                  Sher, LLP is a senior-led firm. Clients work directly with
+                  partners on every matter. Our practice is contained inside
+                  healthcare real estate, commercial financing, and HUD-insured
+                  lending, and that focus produces faster judgment at the
+                  closing table.
+                </p>
+                <p>
+                  Whether the matter is a single skilled nursing facility
+                  acquisition or a multi-state HUD-insured refinance, the same
+                  attorneys carry the deal from term sheet to funding.
+                </p>
+              </div>
+              <Link
+                href="/about"
+                className="mt-12 inline-flex items-center gap-3 text-[12px] font-medium uppercase tracking-eyebrow text-emerald-800 transition hover:text-emerald-700"
+              >
+                <span className="h-px w-8 bg-emerald-800 transition group-hover:w-12" />
+                About the firm
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <section className="bg-navy-50/40 py-28">
+      <section className="border-y border-ink-900/10 bg-sand-50/40 py-32">
         <div className="container-x">
           <Reveal>
-            <div className="eyebrow">Practice</div>
-            <h2 className="heading-section mt-4 max-w-3xl">
-              Healthcare transactions, commercial real estate, and HUD-insured
-              lending — closed nationwide.
-            </h2>
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <div className="eyebrow">Practice</div>
+                <div className="rule mt-4" />
+                <h2 className="heading-section mt-10 max-w-2xl">
+                  Four areas. One closing table.
+                </h2>
+              </div>
+              <Link
+                href="/practice-areas"
+                className="text-[12px] font-medium uppercase tracking-eyebrow text-emerald-800 transition hover:text-emerald-700"
+              >
+                View all practice areas
+              </Link>
+            </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
+          <div className="mt-20 divide-y divide-ink-900/10 border-y border-ink-900/10">
             {practiceAreas.map((area, i) => (
-              <Reveal key={area.slug} delay={i * 0.08}>
+              <Reveal key={area.slug} delay={i * 0.06}>
                 <Link
                   href={`/practice-areas#${area.slug}`}
-                  className="group block h-full border border-navy-100 bg-white p-10 transition hover:-translate-y-1 hover:border-gold-400 hover:shadow-xl"
+                  className="group grid items-center gap-8 py-10 transition md:grid-cols-12"
                 >
-                  <div className="font-serif text-2xl text-navy-950 transition group-hover:text-gold-700">
-                    {area.title}
+                  <div className="font-serif text-xl font-light text-emerald-700 md:col-span-1">
+                    {area.number}
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-navy-700">
+                  <div className="md:col-span-5">
+                    <div className="font-serif text-2xl font-light text-ink-900 transition group-hover:text-emerald-800 md:text-3xl">
+                      {area.title}
+                    </div>
+                  </div>
+                  <div className="text-sm leading-relaxed text-ink-700 md:col-span-5">
                     {area.short}
-                  </p>
-                  <div className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
-                    Learn more <ArrowUpRight className="h-3.5 w-3.5" />
+                  </div>
+                  <div className="md:col-span-1 md:text-right">
+                    <span className="text-[12px] uppercase tracking-eyebrow text-emerald-800">
+                      Read
+                    </span>
                   </div>
                 </Link>
               </Reveal>
@@ -173,117 +173,137 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-28">
-        <div className="container-x">
-          <Reveal>
-            <div className="eyebrow">Why Sher, LLP</div>
-            <h2 className="heading-section mt-4 max-w-2xl">
-              The boutique advantage, with national reach.
-            </h2>
-          </Reveal>
-
-          <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            {valueProps.map((v, i) => (
-              <Reveal key={v.title} delay={i * 0.08}>
-                <div className="border-t-2 border-gold-500 pt-6">
-                  <v.icon className="h-8 w-8 text-navy-900" strokeWidth={1.4} />
-                  <div className="mt-6 font-serif text-xl text-navy-950">
-                    {v.title}
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-navy-700">
-                    {v.body}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-navy-50/40 py-28">
+      <section className="bg-canvas py-32">
         <div className="container-x">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
-                <div className="eyebrow">The team</div>
-                <h2 className="heading-section mt-4 max-w-2xl">
+                <div className="eyebrow">People</div>
+                <div className="rule mt-4" />
+                <h2 className="heading-section mt-10 max-w-2xl">
                   Senior attorneys you'll actually work with.
                 </h2>
               </div>
               <Link
                 href="/people"
-                className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-navy-900 transition hover:text-gold-600"
+                className="text-[12px] font-medium uppercase tracking-eyebrow text-emerald-800 transition hover:text-emerald-700"
               >
-                Meet everyone <ArrowUpRight className="h-4 w-4" />
+                Meet the full team
               </Link>
             </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {attorneys
-              .filter((a) => a.isPartner)
-              .map((a, i) => (
-                <Reveal key={a.slug} delay={i * 0.08}>
-                  <div className="group h-full border border-navy-100 bg-white p-8 transition hover:border-gold-400 hover:shadow-xl">
-                    <div className="aspect-[3/4] w-full bg-gradient-to-br from-navy-100 to-navy-50" />
-                    <div className="mt-6 font-serif text-xl text-navy-950">
-                      {a.name}
-                    </div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.18em] text-gold-600">
-                      {a.title}
-                    </div>
-                    <div className="mt-4 text-xs leading-relaxed text-navy-600">
-                      {a.focus.slice(0, 2).join(" · ")}
-                    </div>
+          <div className="mt-20 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredPartners.map((a, i) => (
+              <Reveal key={a.slug} delay={i * 0.05}>
+                <article>
+                  <div className="relative aspect-[4/5] overflow-hidden bg-emerald-100">
+                    <Image
+                      src={a.imageSrc}
+                      alt={a.name}
+                      fill
+                      sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover grayscale transition duration-700 hover:grayscale-0"
+                    />
                   </div>
-                </Reveal>
-              ))}
+                  <h3 className="mt-6 font-serif text-xl font-light text-ink-900">
+                    {a.name}
+                  </h3>
+                  <div className="mt-1 text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700">
+                    {a.title}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-navy-950 py-28 text-white">
-        <div
-          className="absolute -right-24 top-1/2 -z-10 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-gold-500/10 blur-[140px]"
-          aria-hidden
-        />
-        <div className="container-x grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <div className="eyebrow text-gold-400">Start a conversation</div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-                Have a deal in motion — or one you want to put in motion?
+      <section className="bg-emerald-950 py-32 text-canvas">
+        <div className="container-x">
+          <Reveal>
+            <div className="eyebrow text-emerald-300">
+              Representative matters
+            </div>
+            <div className="mt-4 h-px w-12 bg-emerald-300/70" />
+            <h2 className="mt-10 max-w-3xl font-serif text-3xl font-light leading-[1.15] tracking-[-0.015em] md:text-[2.5rem]">
+              A small selection of recent work.
+            </h2>
+          </Reveal>
+
+          <div className="mt-16 grid gap-px overflow-hidden border border-canvas/10 bg-canvas/10 md:grid-cols-2">
+            {representativeMatters.map((m, i) => (
+              <Reveal key={m.headline} delay={i * 0.05}>
+                <div className="h-full bg-emerald-950 p-10">
+                  <div className="text-[11px] font-medium uppercase tracking-eyebrow text-emerald-300">
+                    {m.category}
+                  </div>
+                  <p className="mt-6 font-serif text-xl font-light leading-snug text-canvas md:text-[1.625rem]">
+                    {m.headline}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.2}>
+            <p className="mt-10 max-w-2xl text-sm text-canvas/60">
+              Illustrative. Some matters are summarized for client
+              confidentiality.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-canvas py-32">
+        <div className="container-x">
+          <div className="grid items-center gap-16 lg:grid-cols-12">
+            <Reveal className="lg:col-span-7">
+              <div className="eyebrow">Start a conversation</div>
+              <div className="rule mt-4" />
+              <h2 className="heading-section mt-10 max-w-2xl">
+                A deal in motion, or one you want to put in motion.
               </h2>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-                Tell us about the transaction. We'll respond the same business
-                day with a short read on fit, timing, and how we'd staff it.
+              <p className="prose-body mt-8 max-w-xl">
+                Tell us about the transaction. We respond the same business day
+                with a short read on fit, timing, and how we would staff the
+                matter.
               </p>
             </Reveal>
-          </div>
-          <div className="lg:col-span-5">
-            <Reveal delay={0.2}>
+            <Reveal delay={0.1} className="lg:col-span-5">
               <div className="flex flex-col gap-4">
-                <Link href="/contact" className="btn-primary justify-between">
-                  <span>Inquire about a transaction</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                <Link
+                  href="/contact"
+                  className="group flex items-center justify-between border-b border-ink-900/15 py-6 transition hover:border-emerald-800"
+                >
+                  <span className="font-serif text-xl font-light italic text-ink-900 group-hover:text-emerald-800">
+                    Inquire about a transaction
+                  </span>
+                  <span className="text-[11px] uppercase tracking-eyebrow text-emerald-800">
+                    Form
+                  </span>
                 </Link>
                 <a
                   href={`tel:${site.phoneTel}`}
-                  className="btn-ghost-light justify-between"
+                  className="group flex items-center justify-between border-b border-ink-900/15 py-6 transition hover:border-emerald-800"
                 >
-                  <span>{site.phone}</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <span className="font-serif text-xl font-light text-ink-900 group-hover:text-emerald-800">
+                    {site.phone}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-eyebrow text-emerald-800">
+                    Call
+                  </span>
                 </a>
                 <a
                   href={`mailto:${site.email}`}
-                  className="btn-ghost-light justify-between"
+                  className="group flex items-center justify-between border-b border-ink-900/15 py-6 transition hover:border-emerald-800"
                 >
-                  <span>{site.email}</span>
-                  <ArrowUpRight className="h-4 w-4" />
+                  <span className="font-serif text-xl font-light text-ink-900 group-hover:text-emerald-800">
+                    {site.email}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-eyebrow text-emerald-800">
+                    Email
+                  </span>
                 </a>
               </div>
             </Reveal>

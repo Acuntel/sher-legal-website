@@ -3,51 +3,61 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 255 255;
-  --foreground: 15 28 46;
+  --canvas: 251 248 241;
+  --ink: 16 24 26;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: rgb(var(--canvas));
 }
 
 body {
-  color: rgb(var(--foreground));
-  background: rgb(var(--background));
+  color: rgb(var(--ink));
+  background: rgb(var(--canvas));
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+::selection {
+  background: #155a3d;
+  color: #faf7f0;
+}
+
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-7xl px-6 lg:px-10;
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-12;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-navy-950 transition hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400;
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-emerald-800 px-7 py-3.5 text-sm font-medium text-canvas transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-navy-100 px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-navy-900 transition hover:border-navy-900 hover:bg-navy-900 hover:text-white;
+    @apply inline-flex items-center justify-center gap-3 rounded-full border border-ink-900/15 px-7 py-3.5 text-sm font-medium text-ink-900 transition hover:border-emerald-800 hover:text-emerald-800;
   }
 
   .btn-ghost-light {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-white/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition hover:border-white hover:bg-white hover:text-navy-950;
+    @apply inline-flex items-center justify-center gap-3 rounded-full border border-canvas/30 px-7 py-3.5 text-sm font-medium text-canvas transition hover:border-canvas hover:bg-canvas hover:text-emerald-900;
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.28em] text-gold-600;
+    @apply text-[11px] font-medium uppercase tracking-eyebrow text-emerald-700;
   }
 
   .heading-display {
-    @apply font-serif text-4xl leading-[1.1] tracking-tight text-navy-950 md:text-5xl lg:text-6xl;
+    @apply font-serif text-[2.6rem] font-light leading-[1.05] tracking-[-0.02em] text-ink-900 md:text-6xl lg:text-7xl;
   }
 
   .heading-section {
-    @apply font-serif text-3xl leading-tight tracking-tight text-navy-950 md:text-4xl;
+    @apply font-serif text-3xl font-light leading-[1.1] tracking-[-0.015em] text-ink-900 md:text-[2.5rem];
   }
 
   .prose-body {
-    @apply text-base leading-relaxed text-navy-800/90 md:text-lg;
+    @apply text-base leading-[1.75] text-ink-700 md:text-[1.0625rem];
+  }
+
+  .rule {
+    @apply h-px w-12 bg-emerald-800;
   }
 }

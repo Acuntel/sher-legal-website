@@ -3,71 +3,81 @@ import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 text-white">
-      <div className="container-x grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <div className="font-serif text-2xl tracking-tight">
-            Sher<span className="text-gold-500">,</span> LLP
+    <footer className="bg-emerald-950 text-canvas">
+      <div className="container-x grid gap-16 py-24 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <div className="flex items-baseline gap-2">
+            <span className="font-serif text-3xl font-light tracking-tight">
+              Sher
+            </span>
+            <span className="text-xs font-medium uppercase tracking-eyebrow text-emerald-300">
+              LLP
+            </span>
           </div>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
+          <p className="mt-6 max-w-md text-sm leading-relaxed text-canvas/65">
             {site.description}
           </p>
+          <div className="mt-10 text-xs uppercase tracking-eyebrow text-emerald-300">
+            Established {site.founded}
+          </div>
         </div>
 
-        <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-400">
+        <div className="md:col-span-3">
+          <div className="text-xs font-medium uppercase tracking-eyebrow text-emerald-300">
             Office
           </div>
-          <address className="mt-4 not-italic text-sm leading-relaxed text-white/80">
+          <address className="mt-5 not-italic text-sm leading-relaxed text-canvas/85">
             {site.address.line1}
             <br />
             {site.address.line2}
             <br />
             {site.address.city}, {site.address.state} {site.address.zip}
           </address>
-        </div>
-
-        <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-400">
-            Contact
-          </div>
-          <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <ul className="mt-6 space-y-2 text-sm text-canvas/85">
             <li>
-              <a className="hover:text-gold-300" href={`tel:${site.phoneTel}`}>
+              <a
+                className="transition hover:text-canvas"
+                href={`tel:${site.phoneTel}`}
+              >
                 {site.phone}
               </a>
             </li>
             <li>
-              <a className="hover:text-gold-300" href={`mailto:${site.email}`}>
+              <a
+                className="transition hover:text-canvas"
+                href={`mailto:${site.email}`}
+              >
                 {site.email}
               </a>
             </li>
-            <li className="pt-2 text-white/60">{site.hours}</li>
           </ul>
         </div>
 
-        <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-400">
+        <div className="md:col-span-4">
+          <div className="text-xs font-medium uppercase tracking-eyebrow text-emerald-300">
             Firm
           </div>
-          <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <ul className="mt-5 space-y-3 text-sm text-canvas/85">
             <li>
-              <Link href="/about" className="hover:text-gold-300">
+              <Link href="/about" className="transition hover:text-canvas">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/people" className="hover:text-gold-300">
+              <Link href="/people" className="transition hover:text-canvas">
                 People
               </Link>
             </li>
             <li>
-              <Link href="/practice-areas" className="hover:text-gold-300">
+              <Link
+                href="/practice-areas"
+                className="transition hover:text-canvas"
+              >
                 Practice Areas
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-gold-300">
+              <Link href="/contact" className="transition hover:text-canvas">
                 Contact
               </Link>
             </li>
@@ -75,15 +85,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="container-x flex flex-col items-start justify-between gap-4 py-6 text-xs text-white/50 md:flex-row md:items-center">
+      <div className="border-t border-canvas/10">
+        <div className="container-x flex flex-col items-start justify-between gap-4 py-6 text-xs text-canvas/45 md:flex-row md:items-center">
           <div>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </div>
-          <div className="max-w-xl text-white/40">
+          <div className="max-w-2xl text-canvas/40">
             Attorney advertising. Prior results do not guarantee a similar
-            outcome. The information on this site is not, nor is it intended to
-            be, legal advice.
+            outcome. The information on this site is not legal advice.
           </div>
         </div>
       </div>

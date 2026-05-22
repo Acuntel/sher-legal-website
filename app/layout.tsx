@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,16 +11,17 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-fraunces",
   display: "swap",
+  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — Healthcare & Commercial Real Estate Counsel`,
-    template: `%s | ${site.name}`,
+    default: `${site.name}, Healthcare and Commercial Real Estate Counsel`,
+    template: `%s · ${site.name}`,
   },
   description: site.description,
   metadataBase: new URL(site.url),
@@ -39,8 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="bg-white font-sans text-navy-950 antialiased">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="bg-canvas font-sans text-ink-900 antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
